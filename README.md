@@ -13,7 +13,15 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
       - name: "Dioxus Deploy"
-        uses: DioxusLabs/deploy-action@0.1.2
+        uses: Thierry61/deploy-action@1.0
+        with:
+          buildMode: release
+          toolchain: stable
+          outDirectory: dist
+          rootPath: .
 ```
